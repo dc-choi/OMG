@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.dao.SampleMapper">
+	<select id="BoardList" resultType="test.vo.Board">
+		SELECT b_no bNo, b_title bTitle, b_user bUser, b_date bDate
+		From board
+	</select>
+	
+	<select id="BoardListOne" resultType="test.vo.Board" parameterType="Integer">
+		SELECT b_no bNo, b_title bTitle, b_user bUser, b_context bContext, b_date bDate
+		FROM board
+		WHERE b_no = #{bNo}
+	</select>
+	
+	<select id="CommentList" resultType="test.vo.Comment" parameterType="Integer">
+		SELECT c_no cNo, b_no bNo, c_user cUser, c_comment cComment, c_date cDate
+		FROM comment
+		WHERE b_no = #{bNo}
+	</select>
+	
+	<select id="CommentListOne" resultType="test.vo.Comment" parameterType="Integer">
+		SELECT c_no cNo, b_no bNo, c_user cUser, c_comment cComment, c_date cDate
+		FROM comment
+		WHERE c_no = #{cNo}
+	</select>
+	
+	<insert id="InsertBoard" parameterType="test.vo.Board">
+		INSERT INTO board (b_title, b_user, b_context, b_date)
+		VALUES (#{bTitle}, #{bUser}, #{bContext}, now())
+	</insert>
+	
+	<insert id="InsertComment" parameterType="test.vo.Comment">
+		INSERT INTO comment (b_no, c_user, c_comment, c_date)
+		VALUES (#{bNo}, #{cUser}, #{cComment}, now())
+	</insert>
+	
+	<delete id="DeleteComment" parameterType="Integer">
+		DELETE FROM comment
+		WHERE c_no = #{cNo}
+	</delete>
+	
+	<delete id="DeleteCommentFromBoard" parameterType="Integer">
+		DELETE FROM comment
+		WHERE b_no = #{bNo}
+	</delete>
+	
+	<delete id="DeleteBoard" parameterType="Integer">
+		DELETE FROM board
+		WHERE b_no = #{bNo}
+	</delete>
+	
+	<update id="UpdateBoard" parameterType="test.vo.Board">
+		UPDATE board
+		SET b_title = #{bTitle}, b_user = #{bUser}, b_context = #{bContext}, b_date = #{bDate}
+		WHERE b_no = #{bNo}
+	</update>
+	
+	<update id="UpdateComment" parameterType="test.vo.Board">
+		UPDATE comment
+		SET c_user = #{cUser}, c_comment = #{cComment}, c_date = #{cDate}
+		WHERE c_no = #{cNo}
+	</update>
+</mapper>
