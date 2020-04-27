@@ -1,6 +1,6 @@
 package week3;
 
-public class week3 {
+public class Week3 {
 	public static void main(String[] args) {
 		
 		// 1. 5개의 숫자를 입력 받아 내림차순으로 버블정렬을 만들어 보세요. 각 단계별 변화되는 과정도 출력하세요.
