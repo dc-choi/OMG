@@ -93,6 +93,7 @@ public class Week4 {
 		System.out.println("어떤 진수로 변환할지 입력하시오");
 		int b = s.nextInt();
 		String c = "";
+		s.close();
 		
 		if(b == 2) {
 			c = Integer.toBinaryString(a);
