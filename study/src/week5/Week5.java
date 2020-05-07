@@ -6,7 +6,7 @@ public class Week5 {
 	public static void main(String[] week) {
 		// 2. 10진수를 입력 받아서 2, 8, 16진수로 바꾸어 출력하는 프로그램을 작성하시오.
 		// 16진수에서 10이상의 수는 순서대로 'A', 'B', 'C', 'D', 'E', 'F'로 나타낸다.
-		Array();
+		// Array();
 		// 3. (주사위 던지기) 자연수 N과 M을 입력 받아서 주사위를 N번 던져서 나온 눈의 합이 M이 나올 수 있는 모든 경우를 출력하는 프로그램을 작성하시오.
 		dice();
 	}
@@ -77,18 +77,16 @@ public class Week5 {
 		// int b = s.nextInt();
 		s.close();
 		
-		int sum = 1;
+		int sum = 0;
 		
-		for (int i = 1; i <= num; i++) {
-			for (int j = 1; j <= num; j++) {
+		for (int i = 1; i <= 6; i++) {
+			for (int j = 1; j <= 6; j++) {
 				if (i + j == num) {
 				System.out.print("x = " + i + "\t");
 				System.out.println("y = " + j);
-				sum+=1;
 				}
 			}
 		}
-		System.out.println("sum = " + sum);
 	}
 }
 
