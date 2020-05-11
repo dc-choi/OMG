@@ -3,7 +3,6 @@ package may;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class May_week2 {
