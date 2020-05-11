@@ -6,21 +6,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class May_week2 {
+	static Scanner s = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		// 오늘의 주제 : 메서드 사용하기
 		May_week2 m = new May_week2();
-		// 1. 오늘의 운세 프로그램을 작성하자. 
-		// 오늘 날짜와 대길, 길 , 중길, 소길, 흉 중 하나의 운세를 표시할 것.
-		// Hint - 랜덤.날짜메서드.확률
+		// 1.
 		m.today();
-		// 2. 배열 a로부터 요소 a[idx]를 삭제하는 aryRmv 메서드를 작성하자.
-		// void aryRmv(int[] a, int idx)
-		// A[idx]의 삭제는, 그 뒤에 있는 요소들을 앞으로 하나씩 이동해서 할 것.
-		// 이동한 후에 비게 되는 마지막 요소 a[a.length-1]의 값은 이동하기 전의 마지막 값을 유지할 것.
-		// 예)배열 a의 요소가 {1,3,4,7,9,11}일 때에 aryRmv(a,2)라고 호출한 후에는 배열a의 요소는 {1,3,7,9,11,11}이 된다.
+		// 2.
 		m.aryRmv();
-		// 3. 숫자야구게임
-		
+		// 3.
+		m.baseBall();
 	}
 	// 1번 문제
 	public void today() {
@@ -103,10 +99,8 @@ public class May_week2 {
 		System.out.println("오늘의 운세는 " + luck[ran] + "입니다");
 	}
 	public void aryRmv() {
-		Scanner s = new Scanner(System.in);
 		System.out.println("제거할 변수의 순서를 0 ~ 5까지 입력하세요.");
 		int idx = s.nextInt();
-		s.close();
 		if(idx >= 6) {
 			System.out.println("6미만의 숫자를 입력해주세요");
 			return;
@@ -126,6 +120,39 @@ public class May_week2 {
 		System.out.println(a);
 	}
 	public void baseBall() {
+		System.out.println("만들 숫자값의 길이를 입력하시오.");
+		// 배열의 길이 설정
+		int num = s.nextInt();
+		// 숫자값을 저장할 배열 선언
+		char[] a = new char[num];
+		// 1 ~ 9까지의 숫자를 입력할 배열 선언
+		char[] index = new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		for(int i=0; i<num-1; i+=1) {
+			// num만큼의 길이의 배열을 무작위 값으로 생성한다.
+			int ran = (int)(Math.random()*9);
+			a[i] = index[ran];
+			
+		}
+		// 야구게임을 하기 위한 변수를 받는다
+		System.out.println("1 ~ 9까지 숫자를 숫자값의 길이만큼 입력하세요");
+		Integer[] b = new Integer[num];
+		for(int i=0; i<num-1; i+=1) {
+			b[i] = s.nextInt();
+		}
+		int strike = 0;
+		int ball = 0;
 		
+		for(int i=0; i<num; i+=1) {
+			if(a[i] == b[i]) {
+				
+			}
+		}
+		/*
+		StringBuffer sb = new StringBuffer();
+		sb.append(b1);
+		sb.append(b2);
+		sb.append(b3);
+		System.out.println(sb.toString());
+		*/
 	}
 }
