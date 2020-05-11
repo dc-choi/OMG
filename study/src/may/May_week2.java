@@ -19,7 +19,7 @@ public class May_week2 {
 		// A[idx]의 삭제는, 그 뒤에 있는 요소들을 앞으로 하나씩 이동해서 할 것.
 		// 이동한 후에 비게 되는 마지막 요소 a[a.length-1]의 값은 이동하기 전의 마지막 값을 유지할 것.
 		// 예)배열 a의 요소가 {1,3,4,7,9,11}일 때에 aryRmv(a,2)라고 호출한 후에는 배열a의 요소는 {1,3,7,9,11,11}이 된다.
-
+		m.aryRmv();
 		// 3. 숫자야구게임
 		
 	}
@@ -105,8 +105,9 @@ public class May_week2 {
 	}
 	public void aryRmv() {
 		Scanner s = new Scanner(System.in);
-		System.out.println("제거할 변수의 순서를 6미만의 숫자로 입력하세요.");
+		System.out.println("제거할 변수의 순서를 0 ~ 5까지 입력하세요.");
 		int idx = s.nextInt();
+		s.close();
 		if(idx >= 6) {
 			System.out.println("6미만의 숫자를 입력해주세요");
 			return;
@@ -119,6 +120,13 @@ public class May_week2 {
 		a.add(3, 7);
 		a.add(4, 9);
 		a.add(5, 11);
-		System.out.println();
+		System.out.println("제거전 배열을 나열한다.");
+		System.out.println(a);
+		a.remove(idx);
+		System.out.println("제거후에 배열을 나열한다.");
+		System.out.println(a);
+	}
+	public void baseBall() {
+		
 	}
 }
