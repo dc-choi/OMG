@@ -66,8 +66,8 @@ public class May_week2 {
 		// http://blog.eomdev.com/java/2016/04/01/%EC%9E%90%EB%B0%948%EC%9D%98-java.time-%ED%8C%A8%ED%82%A4%EC%A7%80.html 참고함
 		
 		/*
-		위 패키지의 클래스들은 String 클래스처럼 변경이 불가능하다. 즉, 날짜나 시간을 변경하면 기존의 객체가 변경되는 것이 아니라, 새로운 객체를 반환한다.
-		기존의 Calendar 클래스는 변경가능 하므로 멀티쓰레드 환경에서 안전하지 않았다.
+		LocalDateTime, DateTimeFormatter와 같은 클래스들은 String 클래스처럼 변경이 불가능하다. 즉, 날짜나 시간을 변경하면 기존의 객체가 변경되는 것이 아니라, 새로운 객체를 반환한다.
+		기존의 SimpleDateFormat, Calendar 클래스는 변경가능 하므로 멀티쓰레드 환경에서 안전하지 않았다.
 
 		멀티쓰레드 환경에서는 여러 쓰레드가 동시에 같은 객체에 접근할 수 있어서 변경 가능한 객체의 데이터가 잘못 될 가능성이 있다.
 		이를 쓰레드 안전(Thread-safe)하지 못하다고 한다.
