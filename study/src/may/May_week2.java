@@ -12,9 +12,9 @@ public class May_week2 {
 		// 오늘의 주제 : 메서드 사용하기
 		May_week2 m = new May_week2();
 		// 1.
-		m.today();
+		// m.today();
 		// 2.
-		m.aryRmv();
+		// m.aryRmv();
 		// 3.
 		m.baseBall();
 	}
@@ -120,39 +120,69 @@ public class May_week2 {
 		System.out.println(a);
 	}
 	public void baseBall() {
+		int strike = 0;
+		int ball = 0;
+		boolean end = true;
+		StringBuffer sb = new StringBuffer();
+		
 		System.out.println("만들 숫자값의 길이를 입력하시오.");
 		// 배열의 길이 설정
 		int num = s.nextInt();
-		// 숫자값을 저장할 배열 선언
-		char[] a = new char[num];
+		// 정답 배열 선언
+		Integer[] a = new Integer[num];
+		// user 배열 선언
+		Integer[] b = new Integer[num];
 		// 1 ~ 9까지의 숫자를 입력할 배열 선언
-		char[] index = new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-		for(int i=0; i<num-1; i+=1) {
-			// num만큼의 길이의 배열을 무작위 값으로 생성한다.
+		Integer[] index = new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		// num만큼의 길이의 배열을 무작위 값으로 생성한다.
+		for(int i=0; i<num; i+=1) {
 			int ran = (int)(Math.random()*9);
 			a[i] = index[ran];
-			
 		}
-		// 야구게임을 하기 위한 변수를 받는다
-		System.out.println("1 ~ 9까지 숫자를 숫자값의 길이만큼 입력하세요");
-		Integer[] b = new Integer[num];
-		for(int i=0; i<num-1; i+=1) {
-			b[i] = s.nextInt();
-		}
-		int strike = 0;
-		int ball = 0;
-		
+		// 디버그 코드
 		for(int i=0; i<num; i+=1) {
-			if(a[i] == b[i]) {
-				
-			}
+			System.out.print(a[i]);
 		}
-		/*
-		StringBuffer sb = new StringBuffer();
-		sb.append(b1);
-		sb.append(b2);
-		sb.append(b3);
-		System.out.println(sb.toString());
-		*/
+		System.out.println();
+		while(end) {
+			System.out.println("야구게임 시작");
+			// 야구게임을 하기 위한 변수를 받는다
+			System.out.println();
+			System.out.println("1 ~ 9까지 숫자를 숫자값의 길이만큼 입력하세요");
+			for(int i=0; i<num; i+=1) {
+				b[i] = s.nextInt();
+			}
+			// 디버그 코드
+			for(int i=0; i<num; i+=1) {
+				System.out.print(b[i]);
+			}
+			System.out.println();
+			for(int i=0; i<num; i+=1) {
+				for(int j=0; j<num; j+=1) {
+					if(i == j && a[i] == b[i]) {
+						strike = strike + 1;
+					} else if(a[i] == b[j]) {
+						ball = ball + 1;
+					}
+				}
+			}
+			if(strike == num) {
+				end = false;
+			}
+			
+			if(strike == 0 && ball == 0) {
+				System.out.println("전부다 같지 않아요!");
+			} else {
+				sb.append("strike는 ");
+				sb.append(strike);
+				sb.append("개 ");
+				sb.append("ball은 ");
+				sb.append(ball);
+				sb.append("개 ");
+				System.out.println(sb.toString());
+			}
+			strike = 0;
+			ball = 0;
+		}
 	}
 }
