@@ -18,7 +18,7 @@ public class May_week3 {
 		// 3. 하나의 학생 정보를 나타내는 Student 클래스에는 이름, 학과, 학번, 학점 평균을 저장하는 필드가 있다.
 		// (1) 학생마다 Student 객체를 생성하고 4명의 학생 정보를 ArrayList<Student> 컬렉션에 저장한 후에,
 		// ArrayList<Student>의 모든 학생(4명) 정보를 출력하고 학생이름을 입력받아 해당 학생의 학점 평균을 출력하는 프로그램을 작성하라.
-		
+		m.CLASS();
 		
 		// 4.정렬되지 않은 학생들의 임의의 점수를 입력하여 석차를 계산하는 프로그램을 작성하시오. 점수는 동점이 있을 수 있으며, 이러한 경우 같은 석차로 처리한다.
 		// 예를 들어 5명의 점수 100, 90, 76, 60, 90이 입력되었다면 석차는 2등이 2명이고 3등은 없다.
@@ -84,5 +84,61 @@ public class May_week3 {
 			}
 			System.out.println(map.getOrDefault(cName2, cNo));
 		}
+	}
+	public void CLASS() {
+		Student student = new Student();
+		ArrayList<Student> list = new ArrayList<Student>();
+		
+		System.out.println("얼마나 입력할것인지 입력하시오.");
+		int Num = s.nextInt();
+		for(int i=0; i<Num; i+=1) {
+			System.out.println("입력한 학생의 총 인원수만큼 무작위 정보를 입력하시오.");
+			System.out.println("학생의 이름을 입력하시오");
+			String Nname = s.next();
+			System.out.println("학생이 시험봤던 과목을 입력하시오");
+			String Ddepartment = s.next();
+			System.out.println("학생이 시험봤던 과목의 점수를 입력하시오");
+			int Sscore = s.nextInt();
+				
+			student.setName(Nname);
+			student.setDepartment(Ddepartment);
+			student.setScore(Sscore);
+				
+			list.add(student);
+		}
+		for(int i=0; i<Num; i+=1) {
+			System.out.println(list.get(i));
+		}
+	}
+}
+class Student {
+	private String name;
+	private String department;
+	private int score;
+	private int avg;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public int getAvg() {
+		return avg;
+	}
+	public void setAvg(int avg) {
+		this.avg = avg;
 	}
 }
