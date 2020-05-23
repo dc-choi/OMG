@@ -1,6 +1,7 @@
 package may;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class May_week3 {
 		// 3. 하나의 학생 정보를 나타내는 Student 클래스에는 이름, 학과, 학번, 학점 평균을 저장하는 필드가 있다.
 		// (1) 학생마다 Student 객체를 생성하고 4명의 학생 정보를 ArrayList<Student> 컬렉션에 저장한 후에,
 		// ArrayList<Student>의 모든 학생(4명) 정보를 출력하고 학생이름을 입력받아 해당 학생의 학점 평균을 출력하는 프로그램을 작성하라.
-		m.CLASS();
+		// m.CLASS();
 		
 		// 4.정렬되지 않은 학생들의 임의의 점수를 입력하여 석차를 계산하는 프로그램을 작성하시오. 점수는 동점이 있을 수 있으며, 이러한 경우 같은 석차로 처리한다.
 		// 예를 들어 5명의 점수 100, 90, 76, 60, 90이 입력되었다면 석차는 2등이 2명이고 3등은 없다.
@@ -27,6 +28,7 @@ public class May_week3 {
 		// 1) 첫 번째 줄은 처리할 점수의 개수 n ( n <= 200 ) ※ 조건수정:2012.10.6
 		// 2) 두 번째 줄은 처리할 점수 데이터 (0~100점)
 		// (단, 각각의 점수는 빈칸으로 구별한다.)
+		m.Seat();
 		
 	}
 	public void AVG() {
@@ -86,7 +88,10 @@ public class May_week3 {
 		}
 	}
 	public void CLASS() {
-		Student student = new Student();
+		String Nname = null;
+		String Ddepartment = null;
+		int Sscore = 0;
+		int Aavg = 0;
 		ArrayList<Student> list = new ArrayList<Student>();
 		
 		System.out.println("얼마나 입력할것인지 입력하시오.");
@@ -94,20 +99,53 @@ public class May_week3 {
 		for(int i=0; i<Num; i+=1) {
 			System.out.println("입력한 학생의 총 인원수만큼 무작위 정보를 입력하시오.");
 			System.out.println("학생의 이름을 입력하시오");
-			String Nname = s.next();
+			Nname = s.next();
 			System.out.println("학생이 시험봤던 과목을 입력하시오");
-			String Ddepartment = s.next();
+			Ddepartment = s.next();
 			System.out.println("학생이 시험봤던 과목의 점수를 입력하시오");
-			int Sscore = s.nextInt();
-				
-			student.setName(Nname);
-			student.setDepartment(Ddepartment);
-			student.setScore(Sscore);
-				
-			list.add(student);
+			Sscore = s.nextInt();
+			System.out.println("학생이 시험봤던 과목의 평균를 입력하시오");
+			Aavg = s.nextInt();
+			
+			Student s = new Student();
+			s.setName(Nname);
+			s.setDepartment(Ddepartment);
+			s.setScore(Sscore);
+			s.setAvg(Aavg);
+			
+			list.add(s);
 		}
-		for(int i=0; i<Num; i+=1) {
-			System.out.println(list.get(i));
+		for(Student s : list) {
+			System.out.println("-------------------");
+			System.out.print(s.getName() + "\t");
+			System.out.print(s.getDepartment() + "\t");
+			System.out.print(s.getScore() + "\t");
+			System.out.print(s.getAvg());
+			System.out.println();
+			System.out.println("-------------------");
+		}
+	}
+	public void Seat() {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		System.out.println("점수를 입력할 사람의 수를 입력하시오");
+		int num = s.nextInt();
+		for(int i=0; i<num; i+=1) {
+			System.out.println("점수를 입력하세요");
+			int score = s.nextInt();
+			list.add(score);
+		}
+		System.out.println(list);
+		list.sort(Comparator.reverseOrder());
+		System.out.println(list);
+		
+		for(int i=0; i<list.size(); i+=1) {
+			int rank = 1;
+			for(int j=0; j<list.size(); j+=1) {
+				if(list.get(i) < list.get(j)) {
+					rank += 1;
+				}
+			}
+			System.out.println(i + "번째 학생의 점수는 : " + list.get(i) + "이고 석차는 : " + rank + "등입니다.");
 		}
 	}
 }
